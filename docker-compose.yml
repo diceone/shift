@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  timeshifter:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - timeshifter_data:/app/data
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    restart: unless-stopped
+
+volumes:
+  timeshifter_data:
+    name: timeshifter_data
